@@ -5,316 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Local Web Studio | Simple Websites for Local Businesses</title>
   <meta name="description" content="Clean, mobile-friendly websites for restaurants, salons, bars, wellness businesses, and local shops." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://local-web-studio-static.vercel.app/" />
+  <link rel="preload" as="image" href="assets/hero-local-web-studio.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="site.webmanifest" />
   <meta property="og:title" content="Local Web Studio | Yugo" />
   <meta property="og:description" content="Simple websites for local businesses. Request a free website sample idea." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://local-web-studio-static.vercel.app/" />
+  <meta property="og:image" content="https://local-web-studio-static.vercel.app/assets/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Local Web Studio | Yugo" />
+  <meta name="twitter:description" content="Simple websites for local businesses. Request a free website sample idea." />
+  <meta name="twitter:image" content="https://local-web-studio-static.vercel.app/assets/og-image.svg" />
   <meta name="theme-color" content="#111111" />
   <style>
-    :root {
-      --bg: #f7f4ef;
-      --surface: #ffffff;
-      --text: #161616;
-      --muted: #66615b;
-      --line: #e4ded6;
-      --dark: #111111;
-      --soft: #ece5dc;
-      --accent: #8a6f4d;
-      --radius: 22px;
-      --shadow: 0 18px 60px rgba(0,0,0,.08);
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(247,244,239,.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav-inner {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 20px; }
-    .nav-links { display: flex; align-items: center; gap: 20px; color: var(--muted); font-size: 14px; }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
-      border-radius: 999px;
-      font-weight: 750;
-      border: 1px solid var(--dark);
-      background: var(--dark);
-      color: #fff;
-      box-shadow: 0 10px 28px rgba(0,0,0,.16);
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-    }
-    .button:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,0,0,.2); }
-    .button.secondary { background: transparent; color: var(--dark); box-shadow: none; border-color: var(--line); }
-    .hero { padding: 92px 0 56px; }
-    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 44px; align-items: center; }
-    .eyebrow { color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: .12em; font-size: 13px; }
-    h1 { font-size: clamp(44px, 7vw, 84px); line-height: .94; letter-spacing: -.075em; margin: 16px 0 22px; }
-    .lead { font-size: clamp(18px, 2vw, 22px); color: var(--muted); max-width: 700px; }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; align-items: center; }
-    .note { color: var(--muted); font-size: 14px; margin-top: 16px; }
-    .mockup {
-      background: linear-gradient(145deg, #fff, #ede6dd);
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
-    .phone {
-      background: var(--surface);
-      border-radius: 28px;
-      padding: 22px;
-      border: 1px solid var(--line);
-      min-height: 520px;
-    }
-    .phone-top { height: 12px; width: 88px; background: var(--dark); opacity: .12; border-radius: 999px; margin: 0 auto 26px; }
-    .phone-card { border: 1px solid var(--line); border-radius: 20px; padding: 16px; margin-bottom: 14px; background: #fff; }
-    .phone-title { font-weight: 800; font-size: 22px; letter-spacing: -.04em; }
-    .phone-muted { color: var(--muted); font-size: 14px; }
-    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .pill { background: var(--soft); border-radius: 999px; padding: 7px 11px; font-size: 12px; font-weight: 700; color: #3a352e; }
-    section { padding: 64px 0; }
-    .section-head { max-width: 760px; margin-bottom: 28px; }
-    h2 { font-size: clamp(32px, 5vw, 54px); line-height: 1; letter-spacing: -.06em; margin: 0 0 16px; }
-    .section-head p { color: var(--muted); font-size: 18px; margin: 0; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-    .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: 0 8px 26px rgba(0,0,0,.04); }
-    .card h3 { margin: 0 0 10px; font-size: 20px; letter-spacing: -.035em; }
-    .card p, .card li { color: var(--muted); }
-    .icon { width: 42px; height: 42px; border-radius: 14px; background: var(--soft); display: grid; place-items: center; margin-bottom: 18px; font-weight: 900; }
-    .list { padding: 0; margin: 0; list-style: none; display: grid; gap: 10px; }
-    .list li { padding-left: 26px; position: relative; }
-    .list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 900; }
-    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .before { background: #fff; }
-    .after { background: #151515; color: #fff; border-color: #151515; }
-    .after p { color: rgba(255,255,255,.78); }
-    .price { font-size: 40px; font-weight: 900; letter-spacing: -.06em; margin: 8px 0 16px; }
-    .price small { font-size: 15px; color: var(--muted); letter-spacing: 0; }
-    .featured { border: 2px solid var(--dark); transform: translateY(-8px); }
-    .process { counter-reset: step; }
-    .step { display: flex; gap: 16px; align-items: flex-start; }
-    .step::before { counter-increment: step; content: counter(step); min-width: 42px; height: 42px; border-radius: 50%; background: var(--dark); color: #fff; display: grid; place-items: center; font-weight: 900; }
-    details { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; }
-    details + details { margin-top: 12px; }
-    summary { cursor: pointer; font-weight: 800; }
-    details p { color: var(--muted); margin-bottom: 0; }
-    .final { background: #151515; color: #fff; border-radius: 34px; padding: 54px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; align-items: center; }
-    .final p { color: rgba(255,255,255,.76); }
-    .final .button { background: #fff; color: #111; border-color: #fff; }
-    footer { padding: 44px 0; border-top: 1px solid var(--line); color: var(--muted); }
-    .footer-inner { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
-    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
-    @media (max-width: 900px) {
-      .nav-links a:not(.button) { display: none; }
-      .hero { padding-top: 62px; }
-      .hero-grid, .split, .final { grid-template-columns: 1fr; }
-      .grid-3, .grid-4 { grid-template-columns: 1fr; }
-      .featured { transform: none; }
-      .final { padding: 32px; }
-      .phone { min-height: auto; }
-    }
+    :root{--ink:#151515;--paper:#fbf8f2;--surface:#fff;--muted:#5e605c;--line:#ded9d0;--sage:#6e7f68;--clay:#b6644d;--amber:#d6a55b;--blue:#566b83;--dark:#101010;--radius:8px;--shadow:0 18px 44px rgba(19,17,13,.1)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);line-height:1.55}a{color:inherit;text-decoration:none}:focus-visible{outline:3px solid var(--amber);outline-offset:4px}.container{width:min(1160px,calc(100% - 40px));margin:0 auto}.skip-link{position:fixed;top:14px;left:14px;z-index:100;padding:10px 14px;border-radius:999px;background:#fff;color:var(--ink);font-weight:850;transform:translateY(-140%);transition:transform .18s ease}.skip-link:focus{transform:translateY(0)}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(251,248,242,.9);border-bottom:1px solid rgba(21,21,21,.1);backdrop-filter:blur(16px)}.nav-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:inline-flex;align-items:center;gap:10px;font-size:18px;font-weight:850;white-space:nowrap}.brand-mark{width:18px;height:18px;border-left:7px solid var(--clay);border-radius:5px;background:var(--ink)}.nav-links{display:flex;align-items:center;gap:24px;color:#3e403d;font-size:14px;font-weight:700}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:0 20px;border:1px solid var(--ink);border-radius:999px;background:var(--ink);color:#fff;font-weight:850;line-height:1;white-space:nowrap;box-shadow:0 12px 28px rgba(0,0,0,.18);transition:transform .18s ease,box-shadow .18s ease}.button:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(0,0,0,.22)}.button.light{background:#fff;color:var(--ink);border-color:#fff}.button.ghost{color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.45);box-shadow:none}.button.ghost-dark{color:var(--ink);background:transparent;border-color:var(--line);box-shadow:none}
+    .hero{position:relative;min-height:570px;display:flex;align-items:center;overflow:hidden;isolation:isolate;color:#fff}.hero:before,.hero:after{position:absolute;inset:0;content:"";z-index:-1}.hero:before{background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.62) 34%,rgba(0,0,0,.25) 64%,rgba(0,0,0,.38)),url("assets/hero-local-web-studio.svg") center/cover no-repeat}.hero:after{background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.2));mix-blend-mode:multiply}.hero-content{max-width:690px;padding:74px 0 80px}.eyebrow{margin:0 0 18px;color:#f2d18d;font-size:13px;font-weight:850;text-transform:uppercase}h1,h2,h3,p{margin-top:0}h1{max-width:690px;margin-bottom:22px;font-size:76px;line-height:.98;letter-spacing:0}.hero-lead{max-width:640px;margin-bottom:28px;color:rgba(255,255,255,.86);font-size:21px}.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:22px}.proof-row{display:flex;flex-wrap:wrap;gap:10px}.proof-pill{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(0,0,0,.22);color:rgba(255,255,255,.86);font-size:13px;font-weight:750;backdrop-filter:blur(10px)}
+    .trust-band{background:#f6f1e8;color:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}.trust-item{min-height:116px;padding:24px;background:#f6f1e8}.trust-item strong{display:block;margin-bottom:5px;font-size:18px}.trust-item span{color:var(--muted);font-size:14px}section{padding:88px 0}.section-head{max-width:780px;margin-bottom:34px}.section-head.center{margin-right:auto;margin-left:auto;text-align:center}h2{margin-bottom:16px;font-size:50px;line-height:1.03}.section-head p,.large-copy{color:var(--muted);font-size:18px}.two-col{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:42px;align-items:center}.insight-list{display:grid;gap:16px;margin:0;padding:0;list-style:none}.insight-list li{display:grid;grid-template-columns:38px minmax(0,1fr);gap:14px;align-items:flex-start}.number{display:grid;width:38px;height:38px;place-items:center;border-radius:50%;background:var(--sage);color:#fff;font-size:13px;font-weight:900}.insight-list strong{display:block;margin-bottom:3px;font-size:19px}.insight-list span{color:var(--muted)}
+    .showcase{background:#f1eee7;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.mock-browser{overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}.browser-top{display:flex;align-items:center;gap:7px;min-height:40px;padding:0 14px;border-bottom:1px solid var(--line);background:#f5f1ea}.dot{width:10px;height:10px;border-radius:50%;background:var(--clay)}.dot:nth-child(2){background:var(--amber)}.dot:nth-child(3){background:var(--sage)}.sample-page{display:grid;grid-template-columns:.9fr 1.1fr;min-height:380px}.sample-photo{background:linear-gradient(rgba(10,10,10,.06),rgba(10,10,10,.12)),url("assets/hero-local-web-studio.svg") center right/cover no-repeat}.sample-copy{padding:32px}.sample-copy h3{margin-bottom:8px;font-size:30px;line-height:1.05}.mini-nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 24px}.mini-nav span{padding:8px 11px;border-radius:999px;background:#ece5da;color:#2b2c2a;font-size:12px;font-weight:850}.contact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.contact-row span{min-height:54px;display:grid;place-items:center;border:1px solid var(--line);border-radius:var(--radius);color:var(--muted);font-size:13px;font-weight:800}.feature-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0 0;padding:0;list-style:none}.feature-list li{min-height:54px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.66);color:#393b38;font-weight:750}
+    .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card-grid.four{grid-template-columns:repeat(4,1fr)}.card,.price-card{min-width:0;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:0 8px 24px rgba(19,17,13,.05)}.card h3{margin-bottom:9px;font-size:22px;line-height:1.18}.card p{margin-bottom:0;color:var(--muted)}.tag{display:inline-flex;align-items:center;min-height:30px;margin-bottom:18px;padding:0 10px;border-radius:999px;background:#eef1e9;color:#3f5941;font-size:12px;font-weight:900}.tag.clay{background:#f3e6df;color:#7b3d2e}.tag.blue{background:#e8edf1;color:#344a60}.before-after{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}.before-after article{padding:30px}.before-after article+article{border-left:1px solid var(--line);background:var(--dark);color:#fff}.before-after article+article p{color:rgba(255,255,255,.72)}
+    .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}.price-card{position:relative;display:flex;flex-direction:column}.price-card.featured{border-color:var(--ink);box-shadow:0 22px 46px rgba(19,17,13,.12)}.price-card .label{width:fit-content;margin-bottom:16px;padding:6px 10px;border-radius:999px;background:var(--ink);color:#fff;font-size:12px;font-weight:900}.price{margin:8px 0 18px;font-size:38px;font-weight:900;line-height:1}.price small{color:var(--muted);font-size:14px;font-weight:800}.list{display:grid;gap:10px;margin:0 0 24px;padding:0;list-style:none}.list li{position:relative;padding-left:22px;color:var(--muted)}.list li:before{position:absolute;left:0;top:.2em;width:10px;height:10px;border:2px solid var(--sage);border-top:0;border-left:0;content:"";transform:rotate(45deg)}.price-card .button{width:100%;margin-top:auto;box-shadow:none}
+    .process-list{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step}.process-step{position:relative;padding-top:58px}.process-step:before{position:absolute;top:0;left:0;display:grid;width:42px;height:42px;place-items:center;border-radius:50%;background:var(--blue);color:#fff;counter-increment:step;content:counter(step);font-weight:900}.faq-list{display:grid;gap:12px}details{border:1px solid var(--line);border-radius:var(--radius);background:#fff}summary{cursor:pointer;padding:18px 20px;font-weight:850}details p{margin:0;padding:0 20px 20px;color:var(--muted)}.closing{padding:82px 0;background:var(--dark);color:#fff}.closing-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}.closing p{max-width:640px;color:rgba(255,255,255,.72);font-size:18px}.closing-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:12px}footer{padding:36px 0;border-top:1px solid var(--line);color:var(--muted)}.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+    @media(max-width:1020px){h1{font-size:62px}h2{font-size:42px}.two-col,.closing-inner,.sample-page{grid-template-columns:1fr}.pricing-grid,.card-grid.four,.process-list{grid-template-columns:repeat(2,1fr)}.sample-photo{min-height:260px}}
+    @media(max-width:760px){.container{width:min(100% - 32px,1160px)}.nav-inner{min-height:64px;gap:10px}.nav-links a:not(.button){display:none}.nav-links{gap:0}.nav .button{min-height:42px;min-width:72px;padding:0 13px;font-size:0}.nav .button:after{content:"Sample";font-size:12px}.brand{font-size:14px}.brand-mark{width:15px;height:15px;border-left-width:6px}.hero{min-height:660px}.hero:before{background:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.7) 48%,rgba(0,0,0,.32)),url("assets/hero-local-web-studio.svg") 62% center/cover no-repeat}.hero-content{padding:58px 0 66px}h1{font-size:44px}h2{font-size:34px}.hero-lead,.section-head p,.large-copy,.closing p{font-size:16px}.cta-row .button{width:100%}.trust-grid,.card-grid,.card-grid.four,.pricing-grid,.process-list,.feature-list,.contact-row,.before-after{grid-template-columns:1fr}.trust-item{min-height:auto}section{padding:64px 0}.sample-copy{padding:24px}.before-after article+article{border-top:1px solid var(--line);border-left:0}.closing-actions{justify-content:flex-start}.closing-actions .button{width:100%}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}.button:hover{transform:none}}
   </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Local Web Studio | Yugo","url":"https://local-web-studio-static.vercel.app/","email":"localwebstudio.yugo@gmail.com","description":"Clean, mobile-friendly websites for restaurants, salons, bars, wellness businesses, and local shops.","sameAs":["https://instagram.com/localwebstudio.yugo"],"areaServed":"Local businesses","offers":[{"@type":"Offer","name":"Starter website","price":"149","priceCurrency":"USD"},{"@type":"Offer","name":"Standard website","price":"299","priceCurrency":"USD"},{"@type":"Offer","name":"Premium website","price":"499","priceCurrency":"USD"}]}</script>
 </head>
 <body>
-  <script>
-    const GOOGLE_FORM_URL = "https://forms.gle/tjwTpfBWuZtVnerWA";
-    const INSTAGRAM_URL = "https://instagram.com/localwebstudio.yugo";
-    const EMAIL = "localwebstudio.yugo@gmail.com";
-  </script>
-
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#top">Local Web Studio | Yugo</a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#process">Process</a>
-        <a class="button" href="https://forms.gle/tjwTpfBWuZtVnerWA" target="_blank" rel="noopener noreferrer">Get a Free Website Sample</a>
-      </nav>
-    </div>
-  </header>
-
+  <a class="skip-link" href="#top">Skip to content</a>
+  <header class="nav"><div class="container nav-inner"><a class="brand" href="#top" aria-label="Local Web Studio by Yugo"><span class="brand-mark" aria-hidden="true"></span>Local Web Studio | Yugo</a><nav class="nav-links" aria-label="Primary navigation"><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#process">Process</a><a class="button" href="https://forms.gle/tjwTpfBWuZtVnerWA" target="_blank" rel="noopener noreferrer">Free Sample</a></nav></div></header>
   <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Simple. Mobile-friendly. Built for local businesses.</div>
-          <h1>Simple Websites for Local Businesses</h1>
-          <p class="lead">I help restaurants, salons, bars, and wellness businesses create clean, mobile-friendly websites that make it easier for customers to call, visit, or book.</p>
-          <div class="cta-row">
-            <a class="button" href="https://forms.gle/tjwTpfBWuZtVnerWA" target="_blank" rel="noopener noreferrer">Get a Free Website Sample</a>
-            <a class="button secondary" href="#services">View Services</a>
-          </div>
-          <p class="note">No complicated process. Just a simple, professional website for your business.</p>
-        </div>
-        <div class="mockup" aria-label="Website preview mockup">
-          <div class="phone">
-            <div class="phone-top"></div>
-            <div class="phone-card">
-              <div class="phone-title">Your Business Name</div>
-              <p class="phone-muted">Restaurant / Salon / Bar / Wellness</p>
-              <div class="pill-row">
-                <span class="pill">Menu</span><span class="pill">Hours</span><span class="pill">Location</span><span class="pill">Contact</span>
-              </div>
-            </div>
-            <div class="phone-card">
-              <strong>What customers can see</strong>
-              <p class="phone-muted">Services, photos, prices, Google Maps, Instagram, and call buttons in one clean page.</p>
-            </div>
-            <div class="phone-card">
-              <strong>Easy action</strong>
-              <p class="phone-muted">Call, book, get directions, or send a message from their phone.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <h2>Customers want to trust you before they visit.</h2>
-          <p>Many local businesses are listed on Google, but new customers often want to see more before calling or visiting. A simple website helps them check your services, hours, location, photos, and contact details in one place.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <h2>A simple website can make your business easier to choose.</h2>
-        </div>
-        <div class="grid-3">
-          <article class="card"><div class="icon">1</div><h3>Clear information</h3><p>Services, menu, hours, location, and photos in one clean page.</p></article>
-          <article class="card"><div class="icon">2</div><h3>Mobile-friendly design</h3><p>Built for customers searching from their phones.</p></article>
-          <article class="card"><div class="icon">3</div><h3>Easy contact</h3><p>Call, email, map, booking, or Instagram buttons.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <h2>What I can create</h2>
-          <p>Focused website pages for small businesses that need a clean online presence quickly.</p>
-        </div>
-        <div class="card">
-          <ul class="list grid-3">
-            <li>One-page business website</li>
-            <li>Restaurant menu page</li>
-            <li>Salon service page</li>
-            <li>Bar / event information page</li>
-            <li>Wellness service page</li>
-            <li>Contact and Google Maps section</li>
-            <li>Instagram link integration</li>
-            <li>Basic copywriting support</li>
-            <li>Mobile-first layout</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head"><h2>Best for businesses like these</h2></div>
-        <div class="grid-4">
-          <article class="card"><h3>Restaurant</h3><p>Show your menu, hours, location, photos, and call button.</p></article>
-          <article class="card"><h3>Salon</h3><p>Show your services, prices, staff, photos, and booking link.</p></article>
-          <article class="card"><h3>Bar & Grill</h3><p>Show your food, drinks, events, opening hours, and location.</p></article>
-          <article class="card"><h3>Wellness</h3><p>Explain your services clearly so new customers feel comfortable before visiting.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head"><h2>Before and after having a simple website</h2></div>
-        <div class="split">
-          <article class="card before"><h3>Before</h3><p>Customers only see your Google listing.</p></article>
-          <article class="card after"><h3>After</h3><p>Customers can check your services, photos, hours, location, and contact options on one clean page.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing">
-      <div class="container">
-        <div class="section-head"><h2>Simple pricing</h2><p>Final pricing may vary depending on the amount of content and requested features.</p></div>
-        <div class="grid-4">
-          <article class="card"><h3>Starter</h3><div class="price">$149</div><ul class="list"><li>One-page website</li><li>Mobile-friendly design</li><li>Business information</li><li>Contact button</li><li>Google Maps section</li></ul></article>
-          <article class="card featured"><h3>Standard</h3><div class="price">$299</div><ul class="list"><li>Everything in Starter</li><li>Menu or service layout</li><li>Photos section</li><li>Instagram link</li><li>Basic copywriting support</li></ul></article>
-          <article class="card"><h3>Premium</h3><div class="price">$499</div><ul class="list"><li>Everything in Standard</li><li>More polished layout</li><li>Multiple sections</li><li>Stronger call-to-action</li><li>Revision support</li></ul></article>
-          <article class="card"><h3>Monthly Update</h3><div class="price">$49<small>/month</small></div><ul class="list"><li>Small updates</li><li>Text changes</li><li>Menu or service edits</li><li>Ongoing support</li></ul></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="process">
-      <div class="container">
-        <div class="section-head"><h2>How it works</h2></div>
-        <div class="grid-4 process">
-          <article class="card step"><div><h3>Send your business information</h3><p>Business name, type, location, and what you want to show.</p></div></article>
-          <article class="card step"><div><h3>I create a simple website draft</h3><p>A clean structure designed for first-time customers.</p></div></article>
-          <article class="card step"><div><h3>You review and request changes</h3><p>We adjust the content and layout before publishing.</p></div></article>
-          <article class="card step"><div><h3>Your website goes live</h3><p>You get a simple page that customers can open from any phone.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head"><h2>FAQ</h2></div>
-        <details><summary>Do I need to prepare all the text?</summary><p>No. I can help organize your business information into simple website copy.</p></details>
-        <details><summary>Can you make a website even if I only have a Google listing?</summary><p>Yes. I can create a simple structure using your business name, services, hours, location, and photos you provide.</p></details>
-        <details><summary>Is this only for restaurants?</summary><p>No. I also work with salons, bars, wellness businesses, and local shops.</p></details>
-        <details><summary>Can customers contact me from the website?</summary><p>Yes. The site can include call, email, map, Instagram, or booking buttons.</p></details>
-        <details><summary>How long does it take?</summary><p>A simple one-page website can usually be prepared quickly once the information is ready.</p></details>
-      </div>
-    </section>
-
-    <section>
-      <div class="container final">
-        <div>
-          <h2>Want to see a simple website idea for your business?</h2>
-          <p>Send your business name and I can create a simple homepage sample idea.</p>
-        </div>
-        <div>
-          <a class="button" href="https://forms.gle/tjwTpfBWuZtVnerWA" target="_blank" rel="noopener noreferrer">Request a Free Sample</a>
-        </div>
-      </div>
-    </section>
+    <section class="hero" aria-label="Local Web Studio hero"><div class="container"><div class="hero-content"><p class="eyebrow">Simple websites for local businesses</p><h1>Simple Websites for Local Businesses</h1><p class="hero-lead">I help restaurants, salons, bars, and wellness businesses turn searchers into visitors, bookings, and inquiries with one clean mobile-first page.</p><div class="cta-row"><a class="button light" href="https://forms.gle/tjwTpfBWuZtVnerWA" target="_blank" rel="noopener noreferrer">Get a Free Website Sample <span aria-hidden="true">&rarr;</span></a><a class="button ghost" href="#services">View Services</a></div><div class="proof-row" aria-label="Service highlights"><span class="proof-pill">Mobile-first layout</span><span class="proof-pill">Clear booking and directions</span><span class="proof-pill">Menu, service, and photo sections</span></div></div></div></section>
+    <div class="trust-band" aria-label="Key benefits"><div class="container trust-grid"><div class="trust-item"><strong>Built for first impressions</strong><span>A focused homepage customers can understand in seconds.</span></div><div class="trust-item"><strong>Made for mobile</strong><span>Most local searches happen on mobile, so the layout starts there.</span></div><div class="trust-item"><strong>Easy next steps</strong><span>Book, get directions, or message from the page.</span></div></div></div>
+    <section><div class="container two-col"><div class="section-head"><h2>Customers want to trust you before they visit.</h2><p>Google listings are useful, but they often leave new customers hunting for details. A simple website gives them the essentials in one calm, professional place.</p></div><ul class="insight-list" aria-label="Why a website helps"><li><span class="number">1</span><span><strong>Show what you offer</strong>Menus, services, prices, photos, and hours are easier to scan.</span></li><li><span class="number">2</span><span><strong>Reduce hesitation</strong>A polished page makes a small business feel more established.</span></li><li><span class="number">3</span><span><strong>Send people to action</strong>Customers can book, find directions, message you, or open Instagram right away.</span></li></ul></div></section>
+    <section class="showcase"><div class="container"><div class="section-head center"><h2>A polished one-page site without the overhead.</h2><p>Focused pages for local businesses that need to look trustworthy quickly, without a complicated process.</p></div><div class="mock-browser" aria-label="Sample website layout preview"><div class="browser-top" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><div class="sample-page"><div class="sample-photo" role="img" aria-label="Local business website displayed on devices"></div><div class="sample-copy"><span class="tag">Sample structure</span><h3>Your business in one easy page</h3><p class="large-copy">A clear intro, practical sections, and contact options customers can use from any mobile device.</p><div class="mini-nav" aria-label="Example page sections"><span>Menu</span><span>Services</span><span>Hours</span><span>Photos</span><span>Location</span></div><div class="contact-row" aria-label="Example contact actions"><span>Message</span><span>Directions</span><span>Book</span></div></div></div></div><ul class="feature-list" aria-label="Website sections available"><li>One-page business website</li><li>Restaurant menu page</li><li>Salon service page</li><li>Bar and event information</li><li>Wellness service page</li><li>Google Maps section</li><li>Instagram link integration</li><li>Basic copywriting support</li><li>Mobile-first layout</li></ul></div></section>
+    <section id="services"><div class="container"><div class="section-head"><h2>What customers can do on your site</h2><p>The goal is not a giant website. The goal is a clear page that helps people decide and take the next step.</p></div><div class="card-grid"><article class="card"><span class="tag">Information</span><h3>See your essentials</h3><p>Services, menu items, prices, hours, photos, location, and business details organized for quick scanning.</p></article><article class="card"><span class="tag clay">Confidence</span><h3>Understand the vibe</h3><p>Photos and simple copy help customers feel what your place is like before they decide to visit.</p></article><article class="card"><span class="tag blue">Action</span><h3>Contact you easily</h3><p>Clear buttons for booking links, directions, Instagram, email, or messaging.</p></article></div></div></section>
+    <section><div class="container"><div class="section-head"><h2>Best for businesses like these</h2></div><div class="card-grid four"><article class="card"><h3>Restaurants</h3><p>Menu, hours, photos, location, and booking or message buttons.</p></article><article class="card"><h3>Salons</h3><p>Services, prices, booking links, staff, and gallery sections.</p></article><article class="card"><h3>Bars</h3><p>Food, drinks, events, hours, and directions.</p></article><article class="card"><h3>Wellness</h3><p>Service explanations, calming photos, hours, and contact options.</p></article></div></div></section>
+    <section><div class="container"><div class="section-head"><h2>Before and after having a simple website</h2></div><div class="before-after"><article><h3>Before</h3><p>Customers only see a listing, a few photos, and scattered information across different platforms.</p></article><article><h3>After</h3><p>Customers can understand your services, photos, hours, location, and contact options on one clean page.</p></article></div></div></section>
+    <section id="pricing"><div class="container"><div class="section-head"><h2>Simple pricing</h2><p>Final pricing may vary depending on content volume and requested features, but the starting point stays clear.</p></div><div class="pricing-grid"><article class="price-card"><h3>Starter</h3><div class="price">$149</div><ul class="list"><li>One-page website</li><li>Mobile-friendly design</li><li>Business information</li><li>Message or booking button</li><li>Google Maps section</li></ul><a class="button ghost-dark" href="https://forms.gle/tjwTpfBWuZtVnerWA" target="_blank" rel="noopener noreferrer">Ask about Starter</a></article><article class="price-card featured"><span class="label">Most useful</span><h3>Standard</h3><div class="price">$299</div><ul class="list"><li>Everything in Starter</li><li>Menu or service layout</li><li>Photos section</li><li>Instagram link</li><li>Basic copywriting support</li></ul><a class="button" href="https://forms.gle/tjwTpfBWuZtVnerWA" target="_blank" rel="noopener noreferrer">Request Standard</a></article><article class="price-card"><h3>Premium</h3><div class="price">$499</div><ul class="list"><li>Everything in Standard</li><li>More polished layout</li><li>Multiple sections</li><li>Stronger action buttons</li><li>Revision support</li></ul><a class="button ghost-dark" href="https://forms.gle/tjwTpfBWuZtVnerWA" target="_blank" rel="noopener noreferrer">Ask about Premium</a></article><article class="price-card"><h3>Monthly Update</h3><div class="price">$49<small>/mo</small></div><ul class="list"><li>Small updates</li><li>Text changes</li><li>Menu or service edits</li><li>Ongoing support</li></ul><a class="button ghost-dark" href="https://forms.gle/tjwTpfBWuZtVnerWA" target="_blank" rel="noopener noreferrer">Ask about updates</a></article></div></div></section>
+    <section id="process"><div class="container"><div class="section-head"><h2>How it works</h2></div><div class="process-list"><article class="process-step"><h3>Send your business information</h3><p>Business name, type, location, photos, and what customers need to know.</p></article><article class="process-step"><h3>I create a simple draft</h3><p>A focused layout designed around first-time customers and mobile visitors.</p></article><article class="process-step"><h3>You review and request changes</h3><p>We tune the content, order, and action buttons before publishing.</p></article><article class="process-step"><h3>Your website goes live</h3><p>You get a page customers can open from Google, Instagram, or a QR code.</p></article></div></div></section>
+    <section><div class="container"><div class="section-head"><h2>FAQ</h2></div><div class="faq-list"><details><summary>Do I need to prepare all the text?</summary><p>No. I can help organize your business information into clear website copy.</p></details><details><summary>Can you make a website if I only have a Google listing?</summary><p>Yes. I can create a simple structure using your business name, services, hours, location, and photos you provide.</p></details><details><summary>Is this only for restaurants?</summary><p>No. It also works well for salons, bars, wellness businesses, and local shops.</p></details><details><summary>Can customers contact me from the website?</summary><p>Yes. The site can include email, map, Instagram, messaging, or booking buttons.</p></details><details><summary>How long does it take?</summary><p>A simple one-page website can usually be prepared quickly once the information and photos are ready.</p></details></div></div></section>
+    <section class="closing"><div class="container closing-inner"><div><h2>Want to see a simple website idea for your business?</h2><p>Send your business name and I can create a free homepage sample idea, so you can see the direction before deciding.</p></div><div class="closing-actions"><a class="button light" href="https://forms.gle/tjwTpfBWuZtVnerWA" target="_blank" rel="noopener noreferrer">Request a Free Sample</a><a class="button ghost" href="mailto:localwebstudio.yugo@gmail.com">Email Yugo</a></div></div></section>
   </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <strong>Local Web Studio | Yugo</strong>
-      <div class="footer-links">
-        <a href="https://instagram.com/localwebstudio.yugo" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="mailto:localwebstudio.yugo@gmail.com">Email</a>
-        <a href="https://forms.gle/tjwTpfBWuZtVnerWA" target="_blank" rel="noopener noreferrer">Request a Free Sample</a>
-      </div>
-    </div>
-  </footer>
+  <footer><div class="container footer-inner"><strong>Local Web Studio | Yugo</strong><div class="footer-links"><a href="https://instagram.com/localwebstudio.yugo" target="_blank" rel="noopener noreferrer">Instagram</a><a href="mailto:localwebstudio.yugo@gmail.com">Email</a><a href="https://forms.gle/tjwTpfBWuZtVnerWA" target="_blank" rel="noopener noreferrer">Request a Free Sample</a></div></div></footer>
 </body>
 </html>
