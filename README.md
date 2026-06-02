@@ -1,20 +1,20 @@
-# Local Web Studio Static LP
+# Local Web Studio | Yugo
 
-This is the final static HTML version for Vercel.
+Static landing page for Local Web Studio.
 
-Upload the CONTENTS of this folder to GitHub, not the ZIP file itself.
+## Publish
 
-Required files:
-- index.html
-- README.md
+This repository is designed to publish as a static site with no build step.
 
-Vercel settings:
-- Framework Preset: Other
-- Build Command: leave blank
-- Output Directory: leave blank
-- Install Command: leave blank
+- Framework preset: Other
+- Build command: none
+- Output directory: `.`
+- Entry file: `index.html`
 
-Links already included:
-- Google Form: https://forms.gle/tjwTpfBWuZtVnerWA
-- Instagram: https://instagram.com/localwebstudio.yugo
-- Email: localwebstudio.yugo@gmail.com
+## Files
+
+- `index.html`: landing page
+- `assets/hero-local-web-studio.svg`: hero artwork
+- `assets/og-image.svg`: social sharing image
+- `robots.txt` and `sitemap.xml`: search engine metadata
+- `vercel.json`: Vercel headers and static hosting config
