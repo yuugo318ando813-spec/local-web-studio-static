@@ -1,6 +1,28 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/sample",
+      "destination": "/travel-planning-studio/sample.html",
+      "permanent": false
+    },
+    {
+      "source": "/sample.html",
+      "destination": "/travel-planning-studio/sample.html",
+      "permanent": false
+    },
+    {
+      "source": "/intake",
+      "destination": "/travel-planning-studio/intake.html",
+      "permanent": false
+    },
+    {
+      "source": "/intake.html",
+      "destination": "/travel-planning-studio/intake.html",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
